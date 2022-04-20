@@ -27,12 +27,11 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        initButtons(primaryStage);
+        initButtons();
         root = new VBox(dragButton, additionalButton, exitButton);
         root.setBackground(new Background(new BackgroundFill(Color.TRANSPARENT, null, null)));
         root.setStyle("-fx-border-color: #666666aa;-fx-border-width:50px;-fx-border-radius:5px");
         initDragListener(primaryStage);
-
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
         primaryStage.initStyle(StageStyle.TRANSPARENT);
@@ -42,7 +41,7 @@ public class Main extends Application {
         primaryStage.setAlwaysOnTop(true);
     }
 
-    private void initButtons(Stage primaryStage) {
+    private void initButtons() {
         dragButton = getButton("Click counter 1");
         additionalButton = getButton("Click counter 2");
         exitButton = getButton("EXIT");
@@ -87,6 +86,7 @@ public class Main extends Application {
         button.setPrefWidth(800);
         button.setPrefHeight(100);
         DropShadow dropShadow = new DropShadow();
+        dropShadow.setColor(Color.rgb(50,50,50));
         dropShadow.setHeight(5);
         dropShadow.setOffsetX(-2);
         dropShadow.setOffsetY(-1);
